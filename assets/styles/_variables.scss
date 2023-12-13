@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+$headings-font-family : "Lilita", sans-serif;
+$font-family-base : "Roboto", sans-serif;
+
+$black : #0F0F11;
+$yellow : #FFCD01;
+$white: #FFFFFF;
+$green: #008000;
+$red : #FF0000;
+
+$primary : $black;
+$secondary : $white;
+$info : $yellow;
+$danger : $red;
+$success : $green;
+
+$theme-colors : (
+"primary" : $primary,
+"secondary" : $secondary,
+"info" : $info,
+"danger" : $danger,
+"success" : $success,
+)
