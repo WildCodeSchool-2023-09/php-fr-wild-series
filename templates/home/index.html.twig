@@ -3,17 +3,20 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-<h1 class="text-secondary bg-primary d-flex justify-content-center">Wild Series</h1>
+<h1 class="text-primary d-flex justify-content-center mt-4">Wild Series</h1>
+    <section>
     <div class="container">
         <div class="row">
             {% for program in programs %}
-            <div class="col-4 mt-4 mb-4">
+            <div class="col-3 mt-4 mb-4">
                 <div class="card">
-                    <img src="{{ upload_program_dir }}{{ program.poster }}" alt="got">
-                    <h2>{{ program.title }}</h2>
+                    <img src="{{ upload_program_dir }}/{{ program.poster }}" alt="got">
+                    <h2><a href="{{ path('program_show', {id: program.id }) }}">{{ program.title }}</a></h2>
+                    <i class="fa-regular fa-star"></i>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
+    </section>
 {% endblock %}

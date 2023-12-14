@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" type="image/png" href="{{ asset('build/images/logo-wild-code-school.svg') }}"/>
+        <script src="https://kit.fontawesome.com/848d5c22f9.js" crossorigin="anonymous"></script>
         <title>
             {% block title %}Projet 3 Name{% endblock %}
         </title>
@@ -17,6 +18,7 @@
         {% endblock %}
     </head>
     <body>
+    {% include 'include/_navarbar.html.twig' %}
         {% block body %}{% endblock %}
     </body>
 </html>
