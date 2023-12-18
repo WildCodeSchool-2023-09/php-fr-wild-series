@@ -10,12 +10,15 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class ProgramFixtures extends Fixture
 {
-
     public const PROGRAMS = [
-        ['title' => 'Game of Thrones', 'poster' => 'got.jpeg', 'country' => 'USA', 'year' => 2011],
-        ['title' => 'House of Dragons', 'poster' => 'hod.jpeg', 'country' => 'USA', 'year' => 2022],
-        ['title' => 'Jujutsu Kaisen', 'poster' => 'jujutsu.jpeg', 'country' => 'Japon', 'year' => 2020],
-        ['title' => 'Stranger Things', 'poster' => 'stranger-things.png', 'country' => 'USA', 'year' => 2016],
+        ['title' => 'Game of Thrones', 'poster' => 'got.jpeg', 'country' => 'USA', 'year' => 2011,
+            'category' => 'Fantastique'],
+        ['title' => 'House of Dragons', 'poster' => 'hod.jpeg', 'country' => 'USA', 'year' => 2022,
+            'category' => 'Fantastique'],
+        ['title' => 'Jujutsu Kaisen', 'poster' => 'jujutsu.jpeg', 'country' => 'Japon', 'year' => 2020,
+            'category' => 'Animation'],
+        ['title' => 'Stranger Things', 'poster' => 'stranger-things.png', 'country' => 'USA', 'year' => 2016,
+            'category' => 'Science-Fiction'],
     ];
 
     public function __construct(private ParameterBagInterface $parameterBag)
@@ -41,6 +44,7 @@ class ProgramFixtures extends Fixture
             $program->setSynopsis($faker->paragraphs(4, true));
             $program->setCountry($programName['country']);
             $program->setYear($programName['year']);
+            $program->setCategory($this->getReference('category_' . $programName['category']));
             $manager->persist($program);
         }
 
