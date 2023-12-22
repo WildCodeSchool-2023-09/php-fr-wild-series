@@ -44,6 +44,11 @@ class UserAuthentificatorAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
+        $user = $token->getUser();
+
+        if (!$user->isVerified()) {
+            throw new \Exception('Votre compte n\'est pas vérifié. Veuillez vérifier votre e-mail.');
+        }
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }

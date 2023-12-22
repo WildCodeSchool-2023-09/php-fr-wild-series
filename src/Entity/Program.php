@@ -19,7 +19,7 @@ class Program
     #[ORM\Column(length: 150)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $poster = null;
 
     #[ORM\Column(type: Types::TEXT)]

@@ -2,8 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Program;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,6 +21,25 @@ class ProgramRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Program::class);
+    }
+
+    public function queryFindAll(): Query
+    {
+        return $this->createQueryBuilder('p')->orderBy('p.id', 'ASC')->getQuery();
+    }
+
+    public function findLikeTitle(string $search, ?Category $category): Query
+    {
+        $query = $this->createQueryBuilder('p')
+            ->join('p.category', 'pc')
+            ->andWhere('p.title LIKE :search')
+            ->setParameter('search', '%' . $search . '%');
+        if ($category) {
+              $query
+              ->andWhere('p.category = :category')
+              ->setParameter('category', $category)  ;
+        }
+           return $query->getQuery()->getResult();
     }
 
 //    /**

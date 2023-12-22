@@ -20,7 +20,7 @@ class ProgramFixtures extends Fixture
         ['title' => 'Stranger Things', 'poster' => 'stranger-things.png', 'country' => 'USA', 'year' => 2016,
             'category' => 'Science-Fiction'],
     ];
-
+    public const NUM_PROGRAM = 300;
     public function __construct(private ParameterBagInterface $parameterBag)
     {
     }
@@ -46,6 +46,17 @@ class ProgramFixtures extends Fixture
             $program->setYear($programName['year']);
             $program->setCategory($this->getReference('category_' . $programName['category']));
             $manager->persist($program);
+        }
+        foreach (self::PROGRAMS as $programName) {
+            for ($i = 0; $i < self::NUM_PROGRAM; $i++) {
+                $program2 = new Program();
+                $program2->setTitle('Program ' . $i);
+                $program2->setSynopsis($faker->paragraphs(4, true));
+                $program2->setCountry('Pays' . $i);
+                $program2->setYear($i);
+                $program2->setCategory($this->getReference('category_' . $programName['category']));
+                $manager->persist($program2);
+            }
         }
 
         $manager->flush();

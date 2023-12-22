@@ -18,12 +18,23 @@
                 <button class="btn btn-outline-info" type="submit">Search</button>
             </form>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" aria-current="page" href="{{ path('app_register') }}">Inscription</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" aria-current="page" href="{{ path('app_login') }}">Connexion</a>
-                </li>
+                {% if app.user %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" aria-current="page" href="{{ path('app_admin_program_index') }}">Dashboard</a>
+                        </li>
+                    {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" aria-current="page" href="{{ path('app_login') }}">Connexion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" aria-current="page" href="{{ path('app_register') }}">Inscription</a>
+                        </li>
+                {% endif %}
             </ul>
         </div>
     </div>
