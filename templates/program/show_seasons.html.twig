@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% include ('include/_toggle.html.twig') %}
+    <div class="row mt-4">
+        {% for season in program.seasons %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 d-flex flex-column">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ season.year }} - Saison {{ season.number }}</h5>
+                        <p class="card-text">{{ season.description }}</p>
+                        <a href="{{ path('program_episode_show', {program : program.id, season : season.id}) }}" class="btn btn-primary mt-auto">Voir les épisodes</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+

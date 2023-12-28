@@ -16,9 +16,14 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
     </head>
     <body>
+    <turbo-frame id="the_frame_id">
     {% include 'include/_navarbar.html.twig' %}
+    <div class="container mt-4">
         {% block body %}{% endblock %}
+    </div>
+    </turbo-frame>
     </body>
 </html>

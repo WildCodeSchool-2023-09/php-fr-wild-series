@@ -5,18 +5,59 @@
 {% block body %}
 <h1 class="text-primary d-flex justify-content-center mt-4">Wild Series</h1>
     <section>
-    <div class="container">
+        <h2 class="mt-4">Séries Action</h2>
         <div class="row">
-            {% for program in programs %}
+            {% for programAction in programsAction %}
             <div class="col-3 mt-4 mb-4">
                 <div class="card">
-                    <img src="{{ upload_program_dir }}/{{ program.poster }}" alt="got">
-                    <h2><a href="{{ path('program_show', {id: program.id }) }}">{{ program.title }}</a></h2>
+                    <img src="{{ upload_program_dir }}/{{ programAction.poster }}" alt="got">
+                    <h2><a href="{{ path('program_show', {id: programAction.id }) }}">{{ programAction.title }}</a></h2>
                     <i class="fa-regular fa-star"></i>
                 </div>
             </div>
             {% endfor %}
         </div>
-    </div>
+    </section>
+    <section>
+            <h2>Séries Science-Fiction</h2>
+            <div class="row">
+                {% for programSf in programsSf %}
+                    <div class="col-3 mt-4 mb-4">
+                        <div class="card">
+                            <img src="{{ upload_program_dir }}/{{ programSf.poster }}" alt="got">
+                            <h2><a href="{{ path('program_show', {id: programSf.id }) }}">{{ programSf.title }}</a></h2>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+    </section>
+    <section>
+            <h2>Séries Fantastique</h2>
+            <div class="row">
+                {% for programFantastique in programsFantastique %}
+                    <div class="col-3 mt-4 mb-4">
+                        <div class="card">
+                            <img src="{{ upload_program_dir }}/{{ programFantastique .poster }}" alt="got">
+                            <h2><a href="{{ path('program_show', {id: programFantastique .id }) }}">{{ programFantastique .title }}</a></h2>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+    </section>
+    <section>
+            <h2>Séries Animation</h2>
+            <div class="row">
+                {% for programAnimation in programsAnimation %}
+                    <div class="col-3 mt-4 mb-4">
+                        <div class="card">
+                            <img src="{{ upload_program_dir }}/{{ programAnimation .poster }}" alt="got">
+                            <h2><a href="{{ path('program_show', {id: programAnimation .id }) }}">{{ programAnimation .title }}</a></h2>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
     </section>
 {% endblock %}

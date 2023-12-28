@@ -25,7 +25,6 @@ class Episode
 
     #[ORM\ManyToOne(inversedBy: 'episodes')]
     private ?Season $season = null;
-
     public function getId(): ?int
     {
         return $this->id;

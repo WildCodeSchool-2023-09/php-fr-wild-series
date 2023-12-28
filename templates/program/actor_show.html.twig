@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include ('include/_toggle.html.twig') %}
+    <div class="row mt-4">
+    {% for actor in program.actors %}
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <img src="https://picsum.photos/seed/picsum/200/300" class="card-img-top" alt="{{ actor.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ actor.name }}</h5>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
+

@@ -1,0 +1,36 @@
+<ul class="nav nav-tabs">
+    {% set links = [
+        {
+            'text': 'Accueil',
+            'icon': 'layer-group',
+            'path': path('program_show', {id: program.id}),
+            'controller': 'App\\Controller\\ProgramController::show',
+        },
+        {
+            'text': 'Saisons',
+            'icon': 'medal',
+            'path': path('program_show_seasons', {id: program.id}),
+            'controller': 'App\\Controller\\ProgramController::showSeasons',
+        },
+        {
+            'text': 'Casting',
+            'icon': 'drum',
+            'path': path('program_actor_show', {program : program.id}),
+            'controller': 'App\\Controller\\ProgamController::showActors',
+        },
+        {
+            'text': 'Critiques',
+            'icon': 'graduation-cap',
+            'path': path('program_comment_show', {program : program.id}),
+            'controller': 'App\\Controller\\ProgramController::showComments',
+        },
+    ] %}
+    {% set currentController = app.request.attributes.get('_controller') %}
+    {% for link in links %}
+        <li class="nav-item">
+            <a href="{{ link.path }}" class="nav-link {{ currentController == link.controller ? 'active' : '' }}">
+                <i class="fas fa-{{ link.icon }} fa-fw"></i><span>{{ link.text }}</span>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

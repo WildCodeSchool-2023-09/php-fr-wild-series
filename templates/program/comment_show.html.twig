@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include ('include/_toggle.html.twig') %}
+
+    <h1>Commentaires</h1>
+    {% for comment in program.comments %}
+        <div class="comment">
+            <p>{{ comment.author.username }} a écrit :</p>
+            <p>{{ comment.comment }}</p>
+            <p>Note : {{ comment.rate }}/5</p>
+        </div>
+        <hr class="comment-separator">
+    {% endfor %}
+
+{% endblock %}
+

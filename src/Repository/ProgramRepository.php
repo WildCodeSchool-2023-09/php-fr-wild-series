@@ -42,6 +42,17 @@ class ProgramRepository extends ServiceEntityRepository
            return $query->getQuery()->getResult();
     }
 
+    public function programCategory(string $category): string
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.category', 'c')
+            ->andWhere('c.name = :category')
+            ->setParameter('category', $category)
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Program[] Returns an array of Program objects
 //     */

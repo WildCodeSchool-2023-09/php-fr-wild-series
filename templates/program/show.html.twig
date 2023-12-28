@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% include('include/_toggle.html.twig') %}
 
-    <div class="container">
-        <h1>{{ program.title }}</h1>
+        <h1 class="mt-4">{{ program.title }}</h1>
         <section class="row">
             <div class="col-lg-6 p-0 d-flex justify-content-center align-items-center">
                 <img src="{{ upload_program_dir }}/{{ program.poster }}" class="img-fluid d-sm-block" alt="">
@@ -14,7 +14,6 @@
                 </div>
             </div>
         </section>
-    </div>
 
 {% endblock %}
 
