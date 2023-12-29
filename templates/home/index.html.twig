@@ -8,13 +8,15 @@
         <h2 class="mt-4">Séries Action</h2>
         <div class="row">
             {% for programAction in programsAction %}
-            <div class="col-3 mt-4 mb-4">
-                <div class="card">
-                    <img src="{{ upload_program_dir }}/{{ programAction.poster }}" alt="got">
-                    <h2><a href="{{ path('program_show', {id: programAction.id }) }}">{{ programAction.title }}</a></h2>
-                    <i class="fa-regular fa-star"></i>
+                <div class="col-3 mt-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{{ (upload_program_dir ~ '/' ~ programAction.poster) | imagine_filter('my_thumb') }}" alt="got">
+                        <div class="card-body d-flex flex-column">
+                            <h2 class="mb-0 mt-auto"><a href="{{ path('program_show', {id: programAction.id }) }}" class="text-decoration-none">{{ programAction.title }}</a></h2>
+                            <i class="fa-regular fa-star ml-auto mt-2"></i>
+                        </div>
+                    </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
     </section>
@@ -24,9 +26,11 @@
                 {% for programSf in programsSf %}
                     <div class="col-3 mt-4 mb-4">
                         <div class="card">
-                            <img src="{{ upload_program_dir }}/{{ programSf.poster }}" alt="got">
-                            <h2><a href="{{ path('program_show', {id: programSf.id }) }}">{{ programSf.title }}</a></h2>
-                            <i class="fa-regular fa-star"></i>
+                            <img src="{{ (upload_program_dir ~ '/' ~ programSf.poster) | imagine_filter('my_thumb') }}" alt="{{ programSf.title }}">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="mb-0 mt-auto"><a href="{{ path('program_show', {id: programSf.id }) }}" class="text-decoration-none">{{ programSf.title }}</a></h2>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}
@@ -37,10 +41,12 @@
             <div class="row">
                 {% for programFantastique in programsFantastique %}
                     <div class="col-3 mt-4 mb-4">
-                        <div class="card">
-                            <img src="{{ upload_program_dir }}/{{ programFantastique .poster }}" alt="got">
-                            <h2><a href="{{ path('program_show', {id: programFantastique .id }) }}">{{ programFantastique .title }}</a></h2>
-                            <i class="fa-regular fa-star"></i>
+                        <div class="card h-100">
+                            <img src="{{ (upload_program_dir ~ '/' ~ programFantastique.poster) | imagine_filter('my_thumb') }}" alt="{{ programFantastique.title }}">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="mb-0 mt-auto"><a href="{{ path('program_show', {id: programFantastique.id }) }}" class="text-decoration-none">{{ programFantastique.title }}</a></h2>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}
@@ -51,10 +57,12 @@
             <div class="row">
                 {% for programAnimation in programsAnimation %}
                     <div class="col-3 mt-4 mb-4">
-                        <div class="card">
-                            <img src="{{ upload_program_dir }}/{{ programAnimation .poster }}" alt="got">
-                            <h2><a href="{{ path('program_show', {id: programAnimation .id }) }}">{{ programAnimation .title }}</a></h2>
-                            <i class="fa-regular fa-star"></i>
+                        <div class="card h-100">
+                            <img src="{{ (upload_program_dir ~ '/' ~ programAnimation.poster) | imagine_filter('my_thumb') }}" alt="{{ programAnimation.title }}">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="mb-0 mt-auto"><a href="{{ path('program_show', {id: programAnimation.id }) }}" class="text-decoration-none">{{ programAnimation.title }}</a></h2>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}

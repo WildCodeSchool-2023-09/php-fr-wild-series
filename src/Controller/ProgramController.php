@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
